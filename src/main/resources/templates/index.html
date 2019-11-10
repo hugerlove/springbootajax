@@ -5,9 +5,12 @@
     <title></title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 </head>
-<body ms-controller="viewmodel">
+<body ms-controller="ajaxTestController">
+<!--        获得controller里的modelMap.put("msg", "SpringBoot Ajax 示例");-->
 <h1 th:text="${msg}">Hello World</h1>
+<!--请求数据-->
 <button type="button" class="btn btn-primary" style="margin: 10px;" ms-click="@request">{{@text}}</button>
+<button type="button" class="btn btn-danger" value="button1" style="margin: 10px;" name="请求数据" onclick="viewmodel.request()">请求数据2</button>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -19,12 +22,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr ms-for="el in @datalist">
-        <td >{{el.id}}</td>
-        <td >{{el.name}}</td>
-        <td>{{el.sex}}</td>
-        <td >{{el.age}}</td>
-        <td >{{el.role}}</td>
+    <tr ms-for="list in @datalist">
+        <td>{{list.id}}</td>
+        <td>{{list.name}}</td>
+        <td>{{list.sex}}</td>
+        <td>{{list.age}}</td>
+        <td>{{list.role}}</td>
     </tr>
     </tbody>
 </table>
